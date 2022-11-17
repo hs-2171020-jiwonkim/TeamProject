@@ -15,7 +15,7 @@
 2. 유사 서비스 분석
 3. 사용된 오픈소스 소프트웨어
 
-### <Elastic Search>
+### Elastic Search
 
 #### 입출력데이터의 형식
 
@@ -127,7 +127,7 @@ Datastream - 새로운 Elasticsearch 데이터 구조 이해하기 : https://you
 
 
 
-### <Scrapy>
+### Scrapy
 
 #### 설명
 
