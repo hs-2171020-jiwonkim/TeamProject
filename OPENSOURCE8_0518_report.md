@@ -245,3 +245,96 @@ How to Connect Scrapy to your PostgreSQL database : https://nicolas-bourriez.med
 4. Data-Flow-Diagram
 
 ---
+
+### <IGListKit>
+
+
+
+#### 설명
+
+
+
+IGListKit은 빠르고 유연한 목록을 작성하기 위한 데이터 중심 UICollectionView 프레임 워크이다. 
+
+IGListKit은 UICollectionView(여러 데이터를 관리하고 커스텀 할 수 있는 레이아웃을 사용해서 사용자에게 보여줄 수 있는 객체)에 표시할 개체의 배열을 제공해준다.
+
+
+
+#### 특징
+
+디핑: 가장 긴 공통 하위 시퀸스(*longest common subsequence*) 기술을 사용하여 선형 시간에서 컬렉션 간의 최소 차이를 찾는다. 이때의 시간복잡도는 O(n)이다. 데이터 배열 사이에서 모든 삽입, 삭제, 업데이트 및 이동을 찾는다. 따라서 사용자들이 좋아요를 누른 수를 실시간으로 업데이트 해줄 수 있다. 다음은 이를 구현하기 위한 코드 중 일부이다.
+
+```
+extension User: ListDiffable {
+  func diffIdentifier() -> NSObjectProtocol {
+    return primaryKey
+  }
+
+  func isEqual(toDiffableObject object: Any?) -> Bool {
+    if let object = object as? User {
+      return name == object.name
+    }
+    return false
+  }
+}
+```
+
+
+
+#### 구조
+
+1. 섹션 컨트롤러 만들기
+
+새로운 섹션을 만들기 위해 IGListSectionController를 참조한다. 'cellForItemAtIndex:``sizeForItemAtIndex:'를 이용하여 재정의 해준다.
+
+2. UI 만들기 
+
+하나 이상의 섹션 컨트롤러를 생성후 IGListAdapter를 생성해준다.
+
+3. 데이터 소스 연결
+
+UI를 만들어 준 후 IGListAdapter의 데이터 소스 일부와 데이터를 반환해준다.
+
+4. 최상위  Post 모델 설계
+
+```
+final class Post: ListDiffable {
+  // 1
+  let username: String
+  let timestamp: String
+  let imageURL: URL
+  let likes: Int
+  let comments: [Comment]
+  // 2
+  init(username: String, timestamp: String, imageURL: URL, likes: Int, comments: [Comment]) {
+    self.username = username
+    self.timestamp = timestamp
+    self.imageURL = imageURL
+    self.likes = likes
+    self.comments = comments
+  }
+}
+```
+
+ListDiffable 프로토콜을 준수하는 Post모델이다. 여기서 주목할 점은 ListDiffable 프로토콜을 준수한다는 점이다.
+
+```
+func diffIdentifier() -> NSObjectProtocol {
+  return as NSObjectProtocol
+}
+func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+  return Boolean
+}
+```
+
+이것이 피드에 관심도 별로 글을 정렬하기 위해(상단으로) 필수적인 것이다. LTR에서 정보를 받아와 해당 프로토콜을 통해 사용자의 관심도에 따라 글의 우선순위를 정렬해준다. 글에 대한 추천수를 실시간으로 받을때마다 서버로부터 새로운 데이터를 전달받는다. 이를 충돌없이 구현하기 위한 기능이다.
+
+
+
+#### 참고
+
+diffing : https://instagram-engineering.com/open-sourcing-iglistkit-3d66f1e4e9aa
+
+
+
+IGListKit구조 : https://leejigun.github.io/IGListKit
