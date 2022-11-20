@@ -17,6 +17,16 @@
 
 ### Elastic Search
 
+
+#### 설명
+
+Apache Lucene을 기반으로 만들어진 오픈소스 소프트웨이며, 데이터를 검색, 저장, 분석하는데 유용한 도구이다.  
+특히, 데이터 검색이 관계형 데이터 베이스에 비해 굉장히 빠른데 그 이유는 역색인을 통해 데이터를 저장하고 검색하기 때문이다.  
+그렇기 때문에, 데이터 베이스에 저장된 데이터의 양과 관계없이 검색 속도는 일정하다.  
+Elastic Search는 정형 데이터와 비정형 데이터를 모두 받아 들일 수 있으며, Kibana를 통해 검색 결과를 시각화할 수 있다.  
+거기에 더해 검색 결과를 그냥 내보내는 것이 아니라 관련도가 높은 데이터를 우선적으로 보여준다.  
+따라서 Elastic Search를 단순한 검색 엔진이 아닌 초고속 데이터 베이스 이면서 빅데이터 플랫폼으로 받아들이는 것이 더 올바르다.
+
 #### 입출력데이터의 형식
 
 기본적으로 Elastic Search는 모든 형태의 데이터에 대하여 쿼리를 할 수 있다.  
@@ -40,14 +50,6 @@
 5. 실시간성  
    데이터 분석이 실시간으로 이루어지며 사용자가 원하는 결과를 바로바로 보여줄 수 있다.
 
-#### 설명
-
-Apache Lucene을 기반으로 만들어진 오픈소스 소프트웨이며, 데이터를 검색, 저장, 분석하는데 유용한 도구이다.  
-특히, 데이터 검색이 관계형 데이터 베이스에 비해 굉장히 빠른데 그 이유는 역색인을 통해 데이터를 저장하고 검색하기 때문이다.  
-그렇기 때문에, 데이터 베이스에 저장된 데이터의 양과 관계없이 검색 속도는 일정하다.  
-Elastic Search는 정형 데이터와 비정형 데이터를 모두 받아 들일 수 있으며, Kibana를 통해 검색 결과를 시각화할 수 있다.  
-거기에 더해 검색 결과를 그냥 내보내는 것이 아니라 관련도가 높은 데이터를 우선적으로 보여준다.  
-따라서 Elastic Search를 단순한 검색 엔진이 아닌 초고속 데이터 베이스 이면서 빅데이터 플랫폼으로 받아들이는 것이 더 올바르다.
 
 #### 관계형 데이터 베이스를 계속 쓰는 이유
 
@@ -124,21 +126,25 @@ Datastream - 새로운 Elasticsearch 데이터 구조 이해하기 : https://you
 
 데이터 분석 플랫폼의 새로운 트렌드 "엘라스틱서치"(엘라스틱서치코리아 김관호 상무) : https://youtu.be/nOFB3jTnHEk
 
-
+깃허브 주소 : https://github.com/elastic/elasticsearch
 
 
 ### Scrapy
 
 #### 설명
 
-Scrapy는 웹 사이트를 돌아다니면서 구조화된 데이터를 추출하기 위해 파이썬으로 작성한 오픈소스 프레임워크이다. 
+
+Scrapy는 웹 사이트를 돌아다니면서 구조화된 데이터를 추출하기 위해 파이썬으로 작성한 오픈소스 프레임워크이다.
+
 추출한 데이터를 데이터 마이닝, 정보 처리, 이력 기록 등 일련의 유용한 애플리케이션에 활용할 수 있다.
 스크래피는 가볍고, 빠르고 확장성이 좋으며 비동기 네트워킹 라이브러리(synchronous networking library)인 Twisted를 기반으로 하기 때문에 매우 우수한 성능을 발휘한다.
 XPath, CSS 표현식으로 HTML 소스에서 데이터 추출이 가능하고 현재 스크래핑허브(Scrapinghub), 플래스(Flax) 고스크레이프(GoScrape) 등 많은 기업들이 상용 지원을 제공하고 있다.
 
 #### (Crawling)크롤링 이란
 
-웹에는 수억개의 웹페이지가 있으며, 대부분의 페이지들은 수많은 정보를 가지고 있다. 
+
+웹에는 수억개의 웹페이지가 있으며, 대부분의 페이지들은 수많은 정보를 가지고 있다.
+
 최근 빅데이터가 대두되면서 이전에 작성되었던 페이지에서 유의미한 정보를 도출하기 위한 여러 가지 방법들이 논의되고 있는데 이를 Scraping 혹은 Crawling이라고 한다.
 
 #### 입출력데이터의 형식
@@ -159,22 +165,23 @@ Scrapy는 웹 페이지에 있는 텍스트나 이미지 등 다양한 형태의
 
 #### 구조
 
-Scrapy의 아키텍처 구조에는 수집 주기를 설정하는 Scheduler가 존재하고 수집할 항목을 정의하는 Item과 수집 데이터의 저장 형식을 정의하는 Pipeline이 출력을 담당하는 형태를 가지고 있다. 
+Scrapy의 아키텍처 구조에는 수집 주기를 설정하는 Scheduler가 존재하고 수집할 항목을 정의하는 Item과 수집 데이터의 저장 형식을 정의하는 Pipeline이 출력을 담당하는 형태를 가지고 있다.
 그리고 Spiders를 통해 웹페이지의 정보를 수집한다.
 
-1. Scheduler 
+1. Scheduler
 
 스케쥴러는 수집 주기, 프록시 설정, 멀티 에이전트 설정 기능을 가지고 있어 Scrapy 엔진의 수집에 관련된 정책 사항을 설정하는 역할을 담당한다.
 
-2. Item Pipeline 
+2. Item Pipeline
 
 아이템 파이프라인은 수집하려는 데이터의 입출력을 담당한다. 수집하려는 항목을 아이템으로 정의하고 수집한 데이터의 형태를 파일 혹은 DBMS로 직접 입력이 가능하도록 설정할 수도 있다.
 
-3. Spiders 
+3. Spiders
 
 수집하는 데이터를 크롤링하는 역할을 한다. 스파이더는 스케쥴러로부터 프로젝트에서 크롤링하는 정책에 따라 설정값을 요청하여 다운로더로부터 받은 크롤링 데이터를 아이템의 형태로 아이템 파이프라인에 전송한다.
 
-4. Downloader 
+4. Downloader
+
 
 http, ftp 프로토콜을 해석하여 웹에 있는 데이터를 다운로드하는 역할을 담당한다.
 
@@ -187,7 +194,9 @@ $ pip install scrapy
 
 ##### 프로젝트 생성 및 프로젝트 구조
 
-scrapy라는 명령어를 통해 프로젝트를 생성하거나, 작성된 프로젝트를 실행할 수 있다. 
+
+scrapy라는 명령어를 통해 프로젝트를 생성하거나, 작성된 프로젝트를 실행할 수 있다.
+
 $ scrapy startproject project명
 
 ##### item.py
@@ -198,9 +207,11 @@ ex)
 import scrapy
 from scrapy.item import ITem, Field
 class APT2UItem(scrapy.Item):
-	depname=scrapy.Field()  //단과대 element
-	trackname=scrapy.Field()  //트랙명 element
-	trackcontent=scrapy.Field()  //트랙의 설명 element
+
+depname=scrapy.Field() //단과대 element
+trackname=scrapy.Field() //트랙명 element
+trackcontent=scrapy.Field() //트랙의 설명 element
+
 
 ##### spider.py
 
@@ -224,26 +235,122 @@ Scrapy 프로젝트 명 변경 ex) scrapy crawl APT2U_DB
 
 "hs" Table 생성 스크립트 예시
 CREATE TABLE `hs` (
-  `depname` varchar(200) DEFAULT NULL,
-  `trackname` varchar(200) DEFAULT NULL,
-  `trackcontent` varchar(500) DEFAULT NULL,
+
+`depname` varchar(200) DEFAULT NULL,
+`trackname` varchar(200) DEFAULT NULL,
+`trackcontent` varchar(500) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 #### 참고
-Scrapy github  :  https://github.com/scrapy/scrapy
 
-[Scrapy] 웹사이트 크롤링해서 DB 저장 하기  :  https://uslifelog.tistory.com/54
+Scrapy github : https://github.com/scrapy/scrapy
 
-(파이썬) Scrapy를 이용한 웹 데이터 크롤러(Crawler) 만들기  :  https://blog.naver.com/PostView.nhn?blogId=rjs5730&logNo=221280231854&categoryNo=14&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search
+[Scrapy] 웹사이트 크롤링해서 DB 저장 하기 : https://uslifelog.tistory.com/54
 
-[티스토리 게시글 추천 시스템 만들기] #5 Scrapy로 스크랩하기  :  https://weejw.tistory.com/536
+(파이썬) Scrapy를 이용한 웹 데이터 크롤러(Crawler) 만들기 : https://blog.naver.com/PostView.nhn?blogId=rjs5730&logNo=221280231854&categoryNo=14&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search
 
-How to Connect Scrapy to your PostgreSQL database  :  https://nicolas-bourriez.medium.com/how-to-connect-scrapy-to-your-postgresql-database-6d27230ec6f8
+[티스토리 게시글 추천 시스템 만들기] #5 Scrapy로 스크랩하기 : https://weejw.tistory.com/536
 
-대용량 데이터를 수집하기 위한 생산성있는 웹 크롤러의 구조  :  https://exmemory.tistory.com/81
+How to Connect Scrapy to your PostgreSQL database : https://nicolas-bourriez.medium.com/how-to-connect-scrapy-to-your-postgresql-database-6d27230ec6f8
+
+대용량 데이터를 수집하기 위한 생산성있는 웹 크롤러의 구조 : https://exmemory.tistory.com/81
 
 
 4. Data-Flow-Diagram
 
 ---
+
+
+### <IGListKit>
+
+
+
+#### 설명
+
+
+
+IGListKit은 빠르고 유연한 목록을 작성하기 위한 데이터 중심 UICollectionView 프레임 워크이다. 
+
+IGListKit은 UICollectionView(여러 데이터를 관리하고 커스텀 할 수 있는 레이아웃을 사용해서 사용자에게 보여줄 수 있는 객체)에 표시할 개체의 배열을 제공해준다.
+
+
+
+#### 특징
+
+디핑: 가장 긴 공통 하위 시퀸스(*longest common subsequence*) 기술을 사용하여 선형 시간에서 컬렉션 간의 최소 차이를 찾는다. 이때의 시간복잡도는 O(n)이다. 데이터 배열 사이에서 모든 삽입, 삭제, 업데이트 및 이동을 찾는다. 따라서 사용자들이 좋아요를 누른 수를 실시간으로 업데이트 해줄 수 있다. 다음은 이를 구현하기 위한 코드 중 일부이다.
+
+```
+extension User: ListDiffable {
+  func diffIdentifier() -> NSObjectProtocol {
+    return primaryKey
+  }
+
+  func isEqual(toDiffableObject object: Any?) -> Bool {
+    if let object = object as? User {
+      return name == object.name
+    }
+    return false
+  }
+}
+```
+
+
+
+#### 구조
+
+1. 섹션 컨트롤러 만들기
+
+새로운 섹션을 만들기 위해 IGListSectionController를 참조한다. 'cellForItemAtIndex:``sizeForItemAtIndex:'를 이용하여 재정의 해준다.
+
+2. UI 만들기 
+
+하나 이상의 섹션 컨트롤러를 생성후 IGListAdapter를 생성해준다.
+
+3. 데이터 소스 연결
+
+UI를 만들어 준 후 IGListAdapter의 데이터 소스 일부와 데이터를 반환해준다.
+
+4. 최상위  Post 모델 설계
+
+```
+final class Post: ListDiffable {
+  // 1
+  let username: String
+  let timestamp: String
+  let imageURL: URL
+  let likes: Int
+  let comments: [Comment]
+  // 2
+  init(username: String, timestamp: String, imageURL: URL, likes: Int, comments: [Comment]) {
+    self.username = username
+    self.timestamp = timestamp
+    self.imageURL = imageURL
+    self.likes = likes
+    self.comments = comments
+  }
+}
+```
+
+ListDiffable 프로토콜을 준수하는 Post모델이다. 여기서 주목할 점은 ListDiffable 프로토콜을 준수한다는 점이다.
+
+```
+func diffIdentifier() -> NSObjectProtocol {
+  return as NSObjectProtocol
+}
+func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+  return Boolean
+}
+```
+
+이것이 피드에 관심도 별로 글을 정렬하기 위해(상단으로) 필수적인 것이다. LTR에서 정보를 받아와 해당 프로토콜을 통해 사용자의 관심도에 따라 글의 우선순위를 정렬해준다. 글에 대한 추천수를 실시간으로 받을때마다 서버로부터 새로운 데이터를 전달받는다. 이를 충돌없이 구현하기 위한 기능이다.
+
+
+
+#### 참고
+
+diffing : https://instagram-engineering.com/open-sourcing-iglistkit-3d66f1e4e9aa
+
+
+
+IGListKit구조 : https://leejigun.github.io/IGListKit
+=======
