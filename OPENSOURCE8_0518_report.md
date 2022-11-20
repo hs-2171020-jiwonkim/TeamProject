@@ -17,6 +17,7 @@
 
 ### Elastic Search
 
+
 #### 설명
 
 Apache Lucene을 기반으로 만들어진 오픈소스 소프트웨이며, 데이터를 검색, 저장, 분석하는데 유용한 도구이다.  
@@ -48,6 +49,7 @@ Elastic Search는 정형 데이터와 비정형 데이터를 모두 받아 들�
 
 5. 실시간성  
    데이터 분석이 실시간으로 이루어지며 사용자가 원하는 결과를 바로바로 보여줄 수 있다.
+
 
 #### 관계형 데이터 베이스를 계속 쓰는 이유
 
@@ -126,18 +128,23 @@ Datastream - 새로운 Elasticsearch 데이터 구조 이해하기 : https://you
 
 깃허브 주소 : https://github.com/elastic/elasticsearch
 
+
 ### Scrapy
 
 #### 설명
 
+
 Scrapy는 웹 사이트를 돌아다니면서 구조화된 데이터를 추출하기 위해 파이썬으로 작성한 오픈소스 프레임워크이다.
+
 추출한 데이터를 데이터 마이닝, 정보 처리, 이력 기록 등 일련의 유용한 애플리케이션에 활용할 수 있다.
 스크래피는 가볍고, 빠르고 확장성이 좋으며 비동기 네트워킹 라이브러리(synchronous networking library)인 Twisted를 기반으로 하기 때문에 매우 우수한 성능을 발휘한다.
 XPath, CSS 표현식으로 HTML 소스에서 데이터 추출이 가능하고 현재 스크래핑허브(Scrapinghub), 플래스(Flax) 고스크레이프(GoScrape) 등 많은 기업들이 상용 지원을 제공하고 있다.
 
 #### (Crawling)크롤링 이란
 
+
 웹에는 수억개의 웹페이지가 있으며, 대부분의 페이지들은 수많은 정보를 가지고 있다.
+
 최근 빅데이터가 대두되면서 이전에 작성되었던 페이지에서 유의미한 정보를 도출하기 위한 여러 가지 방법들이 논의되고 있는데 이를 Scraping 혹은 Crawling이라고 한다.
 
 #### 입출력데이터의 형식
@@ -175,6 +182,7 @@ Scrapy의 아키텍처 구조에는 수집 주기를 설정하는 Scheduler가 �
 
 4. Downloader
 
+
 http, ftp 프로토콜을 해석하여 웹에 있는 데이터를 다운로드하는 역할을 담당한다.
 
 #### 설치 및 실행 방법
@@ -186,7 +194,9 @@ $ pip install scrapy
 
 ##### 프로젝트 생성 및 프로젝트 구조
 
+
 scrapy라는 명령어를 통해 프로젝트를 생성하거나, 작성된 프로젝트를 실행할 수 있다.
+
 $ scrapy startproject project명
 
 ##### item.py
@@ -197,9 +207,11 @@ ex)
 import scrapy
 from scrapy.item import ITem, Field
 class APT2UItem(scrapy.Item):
+
 depname=scrapy.Field() //단과대 element
 trackname=scrapy.Field() //트랙명 element
 trackcontent=scrapy.Field() //트랙의 설명 element
+
 
 ##### spider.py
 
@@ -223,6 +235,7 @@ Scrapy 프로젝트 명 변경 ex) scrapy crawl APT2U_DB
 
 "hs" Table 생성 스크립트 예시
 CREATE TABLE `hs` (
+
 `depname` varchar(200) DEFAULT NULL,
 `trackname` varchar(200) DEFAULT NULL,
 `trackcontent` varchar(500) DEFAULT NULL,
@@ -242,9 +255,11 @@ How to Connect Scrapy to your PostgreSQL database : https://nicolas-bourriez.med
 
 대용량 데이터를 수집하기 위한 생산성있는 웹 크롤러의 구조 : https://exmemory.tistory.com/81
 
+
 4. Data-Flow-Diagram
 
 ---
+
 
 ### <IGListKit>
 
@@ -338,3 +353,4 @@ diffing : https://instagram-engineering.com/open-sourcing-iglistkit-3d66f1e4e9aa
 
 
 IGListKit구조 : https://leejigun.github.io/IGListKit
+=======
